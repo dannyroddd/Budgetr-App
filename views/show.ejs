@@ -12,29 +12,33 @@
     <div class="conatiner">
 
 
-<h1>Budgetr</h1>
+<h1><%= budgets.name %></h1>
 
 
-  
+  <button><a href="/budget">Back</a></button>
 
-        <table>
-            <% for(let i = 0; i < allBudgets.length; i++){ %>
-            <tr>
-              <td><%= allBudgets[i].date %></td>
-              <td>
-                  <a href="/budget/<%= i %>"><%= allBudgets[i].name %></a>
-                </td>
-              <td><%= allBudgets[i].amount %></td>
-            </tr>
-            <% } %>
-          </table>
+  <h5>Date</h5>
+  <p><%= budgets.date %></p>
 
+  <h5>Name</h5>
+  <p><%= budgets.name %></p>
 
+  <h5>From</h5>
+  <p><%= budgets.from %></p>
 
+  <h5>Amount</h5>
+  <p><%= budgets.amount %></p>
+
+  <h5>Tags</h5>
+  <p><%= budgets.tags %></p>
+
+       
 
     
 
     </div>
+
+    
 </body>
 </html>
 

@@ -8,9 +8,14 @@ app.use(express.static('public'))
 
 
 
-app.get('/', (req, res) => {
+app.get('/budget', (req, res) => {
     res.render('index.ejs', {allBudgets: budget});
 });
+
+
+app.get('/budget/:indexOfBudgetArray', (req, res) => {
+    res.render("show.ejs", {budgets: budget[req.params.indexOfBudgetArray]});
+  });
 
 
 
