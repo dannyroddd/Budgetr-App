@@ -12,7 +12,27 @@
     <div class="conatiner">
 
 
-<h1>Budgetr ALL</h1>
+<h1>Budgetr</h1>
+
+
+  
+
+        <table>
+            <% for(let i = 0; i < allBudgets.length; i++){ %>
+            <tr>
+              <td><%= allBudgets[i].date %></td>
+              <td>
+                  <a href="/"><%= allBudgets[i].name %></a>
+                </td>
+              <td><%= allBudgets[i].amount %></td>
+            </tr>
+            <% } %>
+          </table>
+
+
+
+
+    
 
     </div>
 </body>
