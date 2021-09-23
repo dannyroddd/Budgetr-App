@@ -3,17 +3,19 @@ const app = express();
 
 const budget = require('./models/budget')
 
+const bank = require('./models/budget')
 
+//  const methodOverride = require('method-override')
 
 app.use(express.urlencoded({ extended: false}))
 app.use(express.static('public'))
-
-
+//  app.use(methodOverride('_method'))
 
 
 
 app.get('/budget', (req, res) => {
-    res.render('index.ejs', {allBudgets: budget})
+    // res.render('index.ejs', {allBudgets: budget})
+    res.render('index.ejs', {allBudgets: budget , bankAccount: bank})
 })
 
 app.get('/budget/new', (req, res)=>{

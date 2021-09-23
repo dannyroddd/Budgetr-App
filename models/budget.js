@@ -71,4 +71,12 @@ const budget = [
     },
   ];
 
+  let bank = budget.reduce((sum, item) => item.amount + sum,0)
+  console.log(bank)
+
+ 
+
   module.exports = budget
+  module.exports = bank
+//    module.exports = {budget , bank}
+  
