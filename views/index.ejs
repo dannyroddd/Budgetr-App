@@ -14,7 +14,12 @@
 
 <h1>Budgetr</h1>
 
-<h3>Bank Account = $<%=bankAccount%></h3>
+<h4 class="bank">Bank Account = $<%=bankAccount%></h4>
+<% if (bankAccount < 0) { %>
+    <style> .bank { background-color:red; color: white; }</style>
+    <% } if  (bankAccount > 0){%>
+        <style> .bank { background-color:green; color: white; }</style>
+        <% } %>
 
 <nav>
     <button><a href="/budget/new">Add a New Budget Item</a></button>

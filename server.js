@@ -3,19 +3,18 @@ const app = express();
 
 const budget = require('./models/budget')
 
-const bank = require('./models/budget')
-
-//  const methodOverride = require('method-override')
 
 app.use(express.urlencoded({ extended: false}))
 app.use(express.static('public'))
-//  app.use(methodOverride('_method'))
+
 
 
 
 app.get('/budget', (req, res) => {
-    // res.render('index.ejs', {allBudgets: budget})
-    res.render('index.ejs', {allBudgets: budget , bankAccount: bank})
+    let bank = (budget) => budget.reduce((sum, item) => Number(item.amount) + sum,0)
+  bank(budget)
+  console.log(bank(budget))
+    res.render('index.ejs', {allBudgets: budget , bankAccount: bank(budget)})
 })
 
 app.get('/budget/new', (req, res)=>{
@@ -24,7 +23,9 @@ app.get('/budget/new', (req, res)=>{
 
 app.post('/budget', (req, res)=>{
     budget.push(req.body)
-    res.redirect('/budget')
+    
+    res.redirect('/budget')  
+  
 })
 
 
@@ -39,3 +40,4 @@ app.get('/budget/:indexOfBudgetArray', (req, res) => {
 app.listen(3000, () => {
     console.log('listening')
 });
+
